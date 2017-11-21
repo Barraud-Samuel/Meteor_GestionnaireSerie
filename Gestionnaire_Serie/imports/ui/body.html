@@ -7,10 +7,15 @@
         <input type="checkbox" />
         Hide Completed Tasks
       </label>
-      
-      <form class="new-series">
-        <input type="text" name="text" placeholder="Type to add new tasks" />
-      </form>
+
+      {{> loginButtons}}
+
+      {{#if currentUser}}
+        <form class="new-series">
+          <input type="text" name="text" placeholder="Type to add new tasks" />
+        </form>
+      {{/if}}
+
 
     </header>
  
