@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
  
 import { Series } from '../api/series.js';
  
+import './serie.js'; 
 import './body.html';
  
 Template.body.helpers({
