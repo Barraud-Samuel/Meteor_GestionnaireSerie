@@ -1,17 +1,23 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
  
-import { Series } from '../api/series.js';
- 
 import './serie.html';
- 
+
+Template.serie.helpers({
+  isOwner() {
+    return this.owner === Meteor.userId();
+  },
+}); 
+
 Template.serie.events({
   'click .toggle-checked'() {
     // Set the checked property to the opposite of its current value
-    Series.update(this._id, {
-      $set: { checked: ! this.checked },
-    });
+    Meteor.call('series.setChecked', this._id, !this.checked);
   },
   'click .delete'() {
-    Series.remove(this._id);
+    Meteor.call('series.remove', this._id);
+  },
+  'click .toggle-private'() {
+    Meteor.call('series.setPrivate', this._id, !this.private);
   },
 });
