@@ -13,6 +13,8 @@ Template.body.onCreated(function bodyOnCreated() {
   Meteor.subscribe('series');
 });
 
+//DISPLAY THE TASK
+
 Template.body.helpers({
   series() {
   	const instance = Template.instance();
@@ -28,6 +30,8 @@ Template.body.helpers({
     return Series.find({ checked: { $ne: true } }).count();
   },
 });
+
+//LISTEN THE SUBMIT EVENT ON THE FORM
 
 Template.body.events({
   'submit .new-series'(event) {
