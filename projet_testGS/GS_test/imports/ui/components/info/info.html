@@ -1,0 +1,59 @@
+<template name="info">
+  <h2 class="title is-2">Lorem ipsum</h2>
+      <form class="info-link-add">
+          <div class="field"><select class="input" name="type" required>
+              <option value="anime" selected>anime</option>
+              <option value="fantastique">Fantastique</option>
+              <option value="policier">policier</option>
+              <option value="historique">historique</option>
+          </select></div>
+
+          <div class="field"><input class="input" type="text" name="title" placeholder="Title" required></div>
+          <div class="field"><input class="input" type="number" name="seen" placeholder="episodes vus" required></div>
+          <div class="field"><input class="input" type="number" name="total" placeholder="episodes total" required></div>
+          <div class="field"><input class="button is-success submit" type="submit" name="submit" value="Ajouter une serie" required></div>
+      </form>
+
+  <div class="list">
+    <div class="field has-addons filters">
+        <p class="control"><a class="button"><span>ALL</span></a></p>
+    </div>
+      <div class="series">
+          <div class="columns">
+              <div class="column">
+                  <strong>type</strong>
+              </div>
+              <div class="column">
+                  <strong>titre</strong>
+              </div>
+              <div class="column">
+                  <strong>épisodes en cours</strong>
+              </div>
+              <div class="column">
+                  <strong>episodes</strong>
+              </div>
+              <div class="column">
+                  <strong>date</strong>
+              </div>
+              <div class="column">
+              </div>
+          </div>
+          <div class="series_list">
+            {{#each links}}
+              <div class="columns">
+                  <div class="column">{{type}}</div>
+                  <div class="column">{{title}}</div>
+                  <div class="column">
+                      <span class="current-eps">{{seen}}</span>
+                      <a href="#" class="plus button">+</a>
+                      <a href="#" class="minus button">-</a>
+                  </div>
+                  <div class="column">{{total}}</div>
+                  <div class="column">{{timestampToTime timestamp}}</div>
+                  <div class="column"><button class="delete"></button></div>
+              </div>
+            {{/each}}
+          </div>
+      </div>
+  </div>
+</template>
