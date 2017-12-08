@@ -41,10 +41,20 @@ Template.info.events({
     },
 });
 
+//Template helpers for the hours
 Template.registerHelper("timestampToTime", function (timestamp) {
     var date = new Date(timestamp);
     var hours = date.getHours();
     var minutes = "0" + date.getMinutes();
     var seconds = "0" + date.getSeconds();
     return hours + ':' + minutes.substr(minutes.length-2) + ':' + seconds.substr(seconds.length-2);
+});
+
+Template.info.events({
+    'click .plus'() {
+        // increment the counter when button is clicked
+        const seen_id = this._id;
+        Meteor.call('links.update', seen_id,);
+        console.log(seen_id)
+    },
 });

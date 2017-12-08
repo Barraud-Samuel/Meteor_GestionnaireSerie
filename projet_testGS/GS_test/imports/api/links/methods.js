@@ -18,10 +18,13 @@ Meteor.methods({
       total,
       user: Meteor.userId(),
       timestamp: Date.now(),
-      createdAt: new Date(),
+      createdAt: new Date()
     });
   },
     'links.remove'(linkId){
       Links.remove(linkId);
     },
+    'links.update'(seen_id){
+    Links.update(seen_id, { $set: {seen : "toto" } });
+    }
 });
