@@ -5,5 +5,5 @@ import { Links } from '../links.js';
 
 //display the data
 Meteor.publish('links.all', function () {
-  return Links.find({}, {sort: [['createdAt', 'desc']] });
+  return Links.find({});
 });

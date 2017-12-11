@@ -8,7 +8,7 @@ Meteor.methods({
   'links.insert'(type, title, seen, total) {
     check(type, String);
     check(title, String);
-    check(seen, String);
+    check(seen, Number);
     check(total, String);
 
     return Links.insert({
@@ -25,6 +25,8 @@ Meteor.methods({
       Links.remove(linkId);
     },
     'links.update'(seen_id){
-    Links.update(seen_id, { $set: {seen : "toto" } });
+      const seen = Links.findOne(seen_id).seen;
+      console.log(seen);
+    Links.update(seen_id, { $set: {seen : seen +1 } });
     }
 });

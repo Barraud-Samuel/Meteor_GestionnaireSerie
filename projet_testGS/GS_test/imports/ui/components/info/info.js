@@ -8,7 +8,7 @@ Template.info.onCreated(function () {
 
 Template.info.helpers({
   links() {
-    return Links.find({});
+    return Links.find({},{ sort: { createdAt: -1 } });
   },
 });
 
@@ -23,7 +23,7 @@ Template.info.events({
     const seen = target.seen;
     const total = target.total;
 
-    Meteor.call('links.insert', type.value, title.value, seen.value, total.value, (error) => {
+    Meteor.call('links.insert', type.value, title.value, parseInt(seen.value), total.value, (error) => {
       if (error) {
         alert(error.error);
       } else {
