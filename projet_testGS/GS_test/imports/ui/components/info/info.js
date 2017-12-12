@@ -54,7 +54,13 @@ Template.info.events({
     'click .plus'() {
         // increment the counter when button is clicked
         const seen_id = this._id;
-        Meteor.call('links.update', seen_id,);
+        Meteor.call('links.updatePlus', seen_id,);
         console.log(seen_id)
     },
+    'click .minus'(){
+        // increment the counter when button is clicked
+        const seen_id = this._id;
+        Meteor.call('links.updateMinus', seen_id,);
+        console.log(seen_id)
+    }
 });

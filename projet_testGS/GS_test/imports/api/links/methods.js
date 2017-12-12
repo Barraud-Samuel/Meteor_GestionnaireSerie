@@ -24,9 +24,14 @@ Meteor.methods({
     'links.remove'(linkId){
       Links.remove(linkId);
     },
-    'links.update'(seen_id){
+    'links.updatePlus'(seen_id){
       const seen = Links.findOne(seen_id).seen;
       console.log(seen);
     Links.update(seen_id, { $set: {seen : seen +1 } });
+    },
+    'links.updateMinus'(seen_id){
+        const seen = Links.findOne(seen_id).seen;
+        console.log(seen);
+        Links.update(seen_id, { $set: {seen : seen -1 } });
     }
 });
