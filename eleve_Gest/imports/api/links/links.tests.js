@@ -4,7 +4,7 @@
 
 import { Meteor } from 'meteor/meteor';
 import { assert } from 'meteor/practicalmeteor:chai';
-import { Eleves } from './links.js';
+import { Eleves } from './eleves.js';
 
 if (Meteor.isServer) {
   describe('eleves collection', function () {

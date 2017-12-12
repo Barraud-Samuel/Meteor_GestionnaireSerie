@@ -14,6 +14,13 @@ FlowRouter.route('/', {
   },
 });
 
+FlowRouter.route('/Login', {
+    name: 'App.home',
+    action() {
+        BlazeLayout.render('App_body', { main: 'App_home' });
+    },
+});
+
 FlowRouter.notFound = {
   action() {
     BlazeLayout.render('App_body', { main: 'App_notFound' });
