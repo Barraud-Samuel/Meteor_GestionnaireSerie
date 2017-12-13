@@ -1,4 +1,4 @@
-import { Eleves } from '/imports/api/links/eleves.js';
+import { Eleves } from '/imports/api/eleves/eleves.js';
 import { Meteor } from 'meteor/meteor';
 import './info.html';
 

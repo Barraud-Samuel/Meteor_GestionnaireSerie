@@ -5,13 +5,16 @@ import { check } from 'meteor/check';
 import { Eleves } from './eleves.js';
 
 Meteor.methods({
-  'links.insert'(title, url) {
-    check(url, String);
-    check(title, String);
+  'eleves.upsert'(username, email,githubLink) {
+    check(username, String);
+    check(email, String);
+    check(githubLink, String);
 
     return Eleves.insert({
-      url,
-      title,
+      username,
+      email,
+      githubLink,
+      owner: Meteor.userId(),
       createdAt: new Date(),
     });
   },

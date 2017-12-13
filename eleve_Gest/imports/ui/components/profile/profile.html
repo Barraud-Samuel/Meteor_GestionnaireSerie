@@ -1,3 +1,8 @@
 <template name="profile">
     <p>template du profile</p>
+    {{#each infosAccount}}
+        <p>{{username}}</p>
+        <p>{{email}}</p>
+        <p>{{githubLink}}</p>
+    {{/each}}
 </template>

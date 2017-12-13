@@ -1,7 +1,7 @@
 /**
  * Created by samuel on 12/12/17.
  */
-import { Eleves } from '/imports/api/links/eleves.js';
+import { Eleves } from '/imports/api/eleves/eleves.js';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import { Accounts } from 'meteor/accounts-base'
