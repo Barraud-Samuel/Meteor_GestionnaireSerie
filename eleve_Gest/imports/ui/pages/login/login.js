@@ -26,7 +26,7 @@ Template.App_login.events({
         const password = target.password.value;
         Meteor.loginWithPassword(email, password, function(error){
             if(error){
-                console.log(error.reason);
+                alert(error.reason);
             } else {
                 FlowRouter.go("/");
             }
