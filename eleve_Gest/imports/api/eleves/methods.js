@@ -10,12 +10,15 @@ Meteor.methods({
     check(email, String);
     check(githubLink, String);
 
-    return Eleves.insert({
-      username,
-      email,
-      githubLink,
-      owner: Meteor.userId(),
-      createdAt: new Date(),
+    return Eleves.update(
+        { owner: Meteor.userId()},
+        { $set:{
+            username,
+            email,
+            githubLink,
+            createdAt: new Date(),
+        }
+
     });
   },
 });

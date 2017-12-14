@@ -17,10 +17,12 @@ Template.edit_profile.events({
         const username = target.username;
         const email = target.email;
         const githubLink = target.githubLink;
+        const user_id = Meteor.userId();
+        console.log(user_id);
 
         Meteor.call('eleves.upsert', username.value, email.value, githubLink.value, (error)=>{
             if (error) {
-                alert(error.error);
+                console.log(error);
             } else {
                 username.value = '';
                 email.value = '';
@@ -29,7 +31,6 @@ Template.edit_profile.events({
         });
     }
 });
-
 
 
 

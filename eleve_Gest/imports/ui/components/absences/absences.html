@@ -1,5 +1,14 @@
 <template name="absences">
     <div class="absences_container">
-        <p>template absences</p>
+        <h3>Absences</h3>
+        <ul>
+            {{#each absences}}
+                <li><span>{{matiere}}</span><span>{{date}}</span><sapan>{{>validation}}</sapan></li>
+            {{/each}}
+        </ul>
     </div>
+</template>
+
+<template name="validation">
+    {{valide}}
 </template>

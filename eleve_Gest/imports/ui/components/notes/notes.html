@@ -1,5 +1,10 @@
 <template name="notes">
     <div class="notes_container">
-        <p>template des notes</p>
+        <h3>Notes</h3>
+        <ul>
+        {{#each notes}}
+            <li>{{matiere}}: {{note}}</li>
+        {{/each}}
+        </ul>
     </div>
 </template>

@@ -21244,7 +21244,6 @@
       <root url="file://$USER_HOME$/.meteor/packages/promise/0.10.0/npm/node_modules/promise/domains/synchronous.js" />
       <root url="file://$USER_HOME$/.meteor/packages/promise/0.10.0/npm/node_modules/promise/domains/rejection-tracking.js" />
     </CLASSES>
-    <JAVADOC />
     <SOURCES />
   </library>
 </component>
