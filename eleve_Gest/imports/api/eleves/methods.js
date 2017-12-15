@@ -10,7 +10,7 @@ Meteor.methods({
     check(email, String);
     check(githubLink, String);
 
-    return Eleves.update(
+    return Eleves.upsert(
         { owner: Meteor.userId()},
         { $set:{
             username,

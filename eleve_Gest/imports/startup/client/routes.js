@@ -10,6 +10,7 @@ import '../../ui/pages/login/login.js';
 import '../../ui/pages/profile/profile.js';
 import '../../ui/pages/notes/notes.js';
 import '../../ui/pages/absences/absences.js';
+import '../../ui/pages/admin/admin.js';
 
 // Set up all routes in the app
 FlowRouter.route('/', {
@@ -45,6 +46,12 @@ FlowRouter.route('/Notes', {
 FlowRouter.route('/Absences', {
     action() {
         BlazeLayout.render('App_body', { main: 'App_absences' });
+    },
+});
+
+FlowRouter.route('/Admin', {
+    action() {
+        BlazeLayout.render('App_body', { main: 'App_admin' });
     },
 });
 
