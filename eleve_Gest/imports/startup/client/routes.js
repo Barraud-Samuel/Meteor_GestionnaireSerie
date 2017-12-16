@@ -17,7 +17,7 @@ FlowRouter.route('/', {
   name: 'App.home',
   action() {
     if (Meteor.userId()){
-        BlazeLayout.render('App_body', { main: 'App_home' });
+        adminOruserRoute();
     }else{
         FlowRouter.go("/Login");
         console.log('log');
@@ -49,6 +49,7 @@ FlowRouter.route('/Absences', {
     },
 });
 
+// admin route
 FlowRouter.route('/Admin', {
     action() {
         BlazeLayout.render('App_body', { main: 'App_admin' });
@@ -60,3 +61,22 @@ FlowRouter.notFound = {
     BlazeLayout.render('App_body', { main: 'App_notFound' });
   },
 };
+
+
+//Admin condition function
+function adminOruserRoute() {
+    Meteor.call('admin_route', function (error, result) {
+        if(error){
+            console.log(error);
+        } else {
+            console.log(result);
+            if (result === true){
+                console.log('admin');
+                BlazeLayout.render('App_body',{main: 'App_admin'});
+            }else{
+                console.log('user');
+                BlazeLayout.render('App_body', { main: 'App_home' });
+            }
+        }
+    });
+}

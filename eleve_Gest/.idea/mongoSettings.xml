@@ -6,7 +6,7 @@
         <ServerConfiguration>
           <option name="serverUrls">
             <list>
-              <option value="localhost:3001" />
+              <option value="localhost:3031" />
             </list>
           </option>
           <option name="sshTunnelingConfiguration">

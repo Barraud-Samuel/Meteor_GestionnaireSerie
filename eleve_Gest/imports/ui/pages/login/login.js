@@ -28,8 +28,12 @@ Template.App_login.events({
             if(error){
                 alert(error.reason);
             } else {
+                Meteor.call('define_roles');
                 FlowRouter.go("/");
             }
         });
     },
 });
+
+
+
