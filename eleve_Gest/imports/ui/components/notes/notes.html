@@ -1,10 +1,11 @@
 <template name="notes">
     <div class="notes_container">
-        <h3>Notes</h3>
-        <ul>
+        <h3>Vos notes</h3>
+        <ul class="list-notes-container">
         {{#each notes}}
-            <li>{{matiere}}: {{note}}</li>
+            <li><span>{{matiere}}:</span><span>{{note}}</span></li>
         {{/each}}
         </ul>
+        <a href="#" class="seeAll">Tout regarder</a>
     </div>
 </template>

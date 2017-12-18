@@ -1,10 +1,15 @@
 <template name="App_home">
     <div class="home_container">
         {{> nav_bar}}
-        {{> edit_profile}}
-        {{> notes}}
-        {{> profile}}
-        {{> absences}}
+        <div class="title-block-container">
+            <h1>Bonjour : {{userEmail}}</h1>
+            <div class="BlockContainer">
+                {{> edit_profile}}
+                {{> notes}}
+                {{> profile}}
+                {{> absences}}
+            </div>
+        </div>
         <!--  {{> hello}}
             {{> info}}-->
     </div>

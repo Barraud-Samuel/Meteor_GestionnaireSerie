@@ -17,7 +17,7 @@ FlowRouter.route('/', {
   name: 'App.home',
   action() {
     if (Meteor.userId()){
-        adminOruserRoute();
+        adminOruserRouteforHomepage();
     }else{
         FlowRouter.go("/Login");
         console.log('log');
@@ -52,6 +52,7 @@ FlowRouter.route('/Absences', {
 // admin route
 FlowRouter.route('/Admin', {
     action() {
+        adminOruserRouteforAdmin();
         BlazeLayout.render('App_body', { main: 'App_admin' });
     },
 });
@@ -64,19 +65,53 @@ FlowRouter.notFound = {
 
 
 //Admin condition function
-function adminOruserRoute() {
+//peut etre que flow router inclut un systeme de route pour les admin
+//pour le moment je n'ai trouvé que cette solution pour palier ce probleme
+// bonne pratique ou pas, je ne sais pas.
+//Le problème serai que dans l'URL le /admin est toujour affiche alors que l'on est dans le template App_home
+
+function adminOruserRouteforHomepage() {
     Meteor.call('admin_route', function (error, result) {
         if(error){
             console.log(error);
         } else {
             console.log(result);
             if (result === true){
-                console.log('admin');
-                BlazeLayout.render('App_body',{main: 'App_admin'});
+                console.log('Vous pouvez accedez a l espace admin');
+                FlowRouter.go("/admin");
+                //BlazeLayout.render('App_body',{main: 'App_admin'});
             }else{
-                console.log('user');
+                console.log('vous pouvez accedez a l espace user');
                 BlazeLayout.render('App_body', { main: 'App_home' });
             }
         }
     });
 }
+
+function adminOruserRouteforAdmin() {
+    Meteor.call('admin_route', function (error, result) {
+        if(error){
+            console.log(error);
+        } else {
+            console.log(result);
+            if (result === true){
+                console.log('Vous pouvez accedez a l espace admin');
+                FlowRouter.go("/admin");
+                //BlazeLayout.render('App_body',{main: 'App_admin'});
+            }else{
+                console.log('vous pouvez accedez a l espace user');
+                //BlazeLayout.render('App_body', { main: 'App_home' });
+                FlowRouter.go("/");
+            }
+        }
+    });
+}
+
+
+
+////////////// A FAIRE POUR LA PROCHAINE FOIS, LES PROBLEMES RENCONTRES//////////////
+// le packet meteor-useraccounts/flow-routing redirige automatiquement vers la  home au click du login
+// j'essaye de redirigé ver la pag admin si l'utilisateur n'est pos admin
+//si j'enlebe le template d'une route ça va bien me rediriger vers la bonne page mais pas de tempalte, rien s'affiche
+//si je laisse le temlplate, les user qui ne sont pas admin peut voir la page admin pendant une demie seconde
+// il fauut etre redirigé vers la page admin avec le bon tempalte a l'interieur

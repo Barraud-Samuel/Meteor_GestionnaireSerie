@@ -1,11 +1,13 @@
 <template name="absences">
     <div class="absences_container">
-        <h3>Absences</h3>
-        <ul>
+        <h3>Vos absences</h3>
+        <ul class="list-notes-container">
+
             {{#each absences}}
-                <li><span>{{matiere}}</span><span>{{date}}</span><sapan>{{>validation}}</sapan></li>
+                <li><span>{{matiere}}</span><span>{{date}}</span><span>{{>validation}}</span></li>
             {{/each}}
         </ul>
+        <a href="#" class="seeAll">Tout regarder</a>
     </div>
 </template>
 

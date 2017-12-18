@@ -1,11 +1,11 @@
 <template name="nav_bar">
     <div class="nav_bar_container">
         <ul>
-            <li><a href="#" class="home">Vue d'ensemble du compte</a></li>
+            <li><a href="#" class="home"><img src="/img/icon.png" alt="home">Vue d'ensemble du compte</a></li>
             <li><a href="#" class="profile">profile</a></li>
             <li><a href="#" class="notes">Notes</a></li>
             <li><a href="#" class="absences">absences</a></li>
-            <li>{{#if currentUser}}<a href="#" class="logout">Déconnexion</a>{{/if}}</li>
+            <li>{{#if currentUser}}<a href="#" class="logout"><img src="/img/exit.png" alt="home">Déconnexion</a>{{/if}}</li>
         </ul>
     </div>
 </template>

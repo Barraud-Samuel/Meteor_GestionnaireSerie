@@ -11,6 +11,6 @@ Template.profile.onCreated(function () {
 
 Template.profile.helpers({
     infosAccount() {
-        return Eleves.find({});
+        return Eleves.find({owner: Meteor.userId()});
     },
 });

@@ -2,9 +2,13 @@
     <div class="profile_container">
         <h3>Profil</h3>
         {{#each infosAccount}}
-            <p>{{username}}</p>
-            <p>{{email}}</p>
-            <p>{{githubLink}}</p>
+            <p class="infouserName">Nom d'utilisateur</p>
+            <p class="inforesults">{{username}}</p>
+            <p class="infouserName">Addresse électronique</p>
+            <p class="inforesults">{{email}}</p>
+            <p class="infouserName">Compte Github</p>
+            <p class="inforesults">{{githubLink}}</p>
         {{/each}}
+        <a href="#" class="seeAll">Tout regarder</a>
     </div>
 </template>

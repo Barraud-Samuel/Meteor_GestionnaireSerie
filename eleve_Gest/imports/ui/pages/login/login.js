@@ -18,22 +18,15 @@ Template.App_login.events({
     },
 });
 
-Template.App_login.events({
-    'submit .login'(event){
-        event.preventDefault();
-        const target = event.target;
-        const email = target.email.value;
-        const password = target.password.value;
-        Meteor.loginWithPassword(email, password, function(error){
-            if(error){
-                alert(error.reason);
-            } else {
-                Meteor.call('define_roles');
-                FlowRouter.go("/");
-            }
-        });
+/*Template.App_login.events({
+    'click .submit'(event){
+        //FlowRouter.go("/");
+        console.log('123456')
     },
-});
+});*/
 
 
 
+/*
+je comprend pas pourquoi le packet useraccounts:flow-routing redirige automatiquement
+ver la home sans avoir parametré aucun chemin, je ne sais pas si c'est le comportement de base*/

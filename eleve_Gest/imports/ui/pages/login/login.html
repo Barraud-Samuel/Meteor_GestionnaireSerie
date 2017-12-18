@@ -1,22 +1,29 @@
 <template name="App_login">
-    <div class="presentation-block">
-        <h1>Elève Gestion</h1>
-        {{> loginButtons}}
-        {{#if currentUser}}
-            <a href="#" class="logout">Logout</a>
-        {{/if}}
-        <h2><span>Gérer.regarder.les.notes.</span><br>Rapidement.Simplement.</h2>
-        <div class="start"><a href="#">Commencer</a></div>
-    </div><!--
-    --><div class="form-container">
-        <h2>connexion</h2>
-        <form class="login">
-            <p>Email* <input type="email" name="email"></p>
-            <p>Mot de passe* <input type="password" name="password"></p>
-            <p><input class="connexionbutton" type="submit" value="connection"></p>
-        </form>
-        <a href="#" class="forgot_pwd">Mot de passe oublié</a>
-        <p class="info">Votre login et votre mot de passe est généré automatiquement</p>
-        <p class="info">Vous êtes professeur ? utiliser vos codes d'administration</p>
-    </div>
+    <main>
+        <div class="presentation-block">
+            <div class="nav-bar">
+                <h1>Elève Gestion</h1>
+                <!--{{> loginButtons}}-->
+                {{#if currentUser}}
+                    <a href="#" class="logout">Deconnexion</a>
+                {{/if}}
+            </div>
+            <div class="infostartcontainer">
+            <h2><span>Gérer.regarder.les.notes.</span><br>Rapidement.Simplement.</h2>
+            <div class="start"><a href="#">Commencer</a><i class="fa fa-long-arrow-right" aria-hidden="true"></i></div>
+            </div>
+        </div>
+        <div class="form-container">
+            <div class="form-content">
+                <h2>connexion</h2>
+                {{> atForm}}
+                <form class="login">
+                    <p>Email* <input type="email" name="email"></p>
+                    <p>Mot de passe* <input type="password" name="password"></p>
+                    <p><input class="connexionbutton" type="submit" value="connection"></p>
+                </form>
+                <p class="info">Vous êtes professeur ? utiliser vos codes d'administration</p>
+            </div>
+        </div>
+    </main>
 </template>

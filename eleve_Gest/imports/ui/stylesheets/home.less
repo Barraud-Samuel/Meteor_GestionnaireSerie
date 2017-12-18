@@ -1,17 +1,69 @@
 .home_container{
   background:#F5F5F5 ;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.title-block-container{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  h1{position: relative}
+  h1:after{
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background: #1f2128;
+    bottom: -25px;
+  }
+}
+.BlockContainer{
+  display: flex;
+ max-width: 1000px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 h3{
   font-size: 25px;
   color: #7344c0;
+  margin-bottom: 30px;
+}
+.list-notes-container, .list-notes-container{
+  display: flex;
+  flex-direction: column;
+  li{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    span{
+      &:first-child{flex: 2; text-align: left;}
+      &:last-child{text-align: right;}
+      flex: 1;
+      text-align: center;
+    }
+  }
+ }
+.seeAll{
+  margin: 50px auto 0 auto;
+  background: #5A5A5A;
+  color: #fff;
+  display: block;
+  max-width: 200px;
+  padding: 10px 0;
+  width:100%;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
 }
 .nav_bar_container{
-  float: left;
-  min-height: 400px;
+  min-height: 100vh;
   width: 30%;
+  max-width: 300px;
   background: #000;
   padding: 50px 20px 0 10px;
-  height: 100vh;
   ul{
     list-style: none;
     li{
@@ -22,55 +74,65 @@ h3{
         text-decoration: none;
         &:hover{color: #7344c0;}
       }
+      img{
+        width: 25px;
+        padding-right: 10px;
+      }
     }
   }
 }
 .edit_profile_container{
-  float: left;
-  min-height: 300px;
-  width: calc(70% /2);
-  padding: 50px;
-  /*margin: 30px 0 0 25px ;*/
-  background: #fff;
   form{
-    margin-top: 10px;
+    margin-top: 20px;
     input{
-      background: lightgrey;
+      background: #F5F3F3;
       border: none;
       padding: 5px 10px;
-      border-radius: 10px;
-      margin-top: 5px;
-      margin-bottom: 12px;
+      border-radius: 5px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      width: 100%;
+      max-width: 220px;
     }
     .save{
-      margin: 0 auto;
-      background: grey;
+      margin: 50px auto 0 auto;
+      background: #5A5A5A;
       color: #fff;
       display: block;
-      max-width: 150px;
+      max-width: 200px;
+      padding: 10px 0;
       width:100%;
       cursor: pointer;
     }
+    label{
+      display: block;
+    }
   }
 }
-.notes_container{
-  float: left;
-  min-height: 400px;
-  width: calc(70% /2);
-  padding: 50px;
-  background: #fff;
+.infouserName{
+  font-size: 19px;
+  margin-bottom: 5px;
 }
-.profile_container{
-  float: left;
-  min-height: 400px;
-  width: calc(70% /2);
-  padding: 50px;
-  background: #fff;
+.inforesults{
+  margin-bottom: 20px;
+  padding-left: 10px;
+  font-size: 14px;
 }
-.absences_container{
-  float: left;
-  min-height: 400px;
-  width: calc(70% /2);
-  padding: 50px;
+.notes_container, .profile_container, .absences_container, .edit_profile_container {
+  width: 50%;
+  max-width: 400px;
+  min-width:300px;
+  padding: 40px;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.edit_profile_container, .notes_container{
+  margin-bottom: 30px;
+}
+/*
+.edit_profile_container, .profile_container{
+  margin-right: 20px;
+}*/

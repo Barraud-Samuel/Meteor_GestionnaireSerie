@@ -27,3 +27,5 @@ johanbrook:publication-collector  # Test a Meteor publication by collecting its 
 accounts-password
 accounts-ui
 alanning:roles
+useraccounts:unstyled
+useraccounts:flow-routing
