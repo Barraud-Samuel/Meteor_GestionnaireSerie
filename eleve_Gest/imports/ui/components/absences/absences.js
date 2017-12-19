@@ -3,6 +3,10 @@
  */
 import './absences.html';
 import { Template } from 'meteor/templating';
+import { Meteor } from 'meteor/meteor';
+import {Eleves} from "../../../api/eleves/eleves";
+
+
 
 
 Template.absences.helpers({
@@ -13,3 +17,11 @@ Template.absences.helpers({
         { matiere: 'Gestion de projet', date:'17', valide: 'valide' },
     ],
 });
+
+//recuperation des absences de l'elève e question
+/*
+Template.profile.helpers({
+    infosAccount() {
+        return Eleves.find({owner: Meteor.userId()});
+    },
+});*/

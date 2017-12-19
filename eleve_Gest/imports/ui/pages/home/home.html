@@ -1,4 +1,9 @@
 <template name="App_home">
+    <!--redirection vers la page admin si l'utilisateur est un admin-->
+    {{#if isAdmin}}
+        {{redirectionAdmin}}
+    {{else}}
+        {{#if isUser}}
     <div class="home_container">
         {{> nav_bar}}
         <div class="title-block-container">
@@ -13,4 +18,6 @@
         <!--  {{> hello}}
             {{> info}}-->
     </div>
+        {{/if}}
+    {{/if}}
 </template>

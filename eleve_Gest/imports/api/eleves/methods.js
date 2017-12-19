@@ -24,6 +24,9 @@ Meteor.methods({
     });
   },
 });
+
+
+
 //methods for configuration roles
 Meteor.methods({
     'define_roles': function () {
@@ -41,7 +44,14 @@ Meteor.methods({
     }
 });
 
+Meteor.methods({
+    'get_emails':function(){
+        return Meteor.user().emails[0].address;
+    }
+});
+
 //methods for the admin route
+/*
 Meteor.methods({
     'admin_route': function () {
         if (Roles.userIsInRole(Meteor.userId(), 'admin' )){
@@ -51,4 +61,4 @@ Meteor.methods({
         }
         return Roles.userIsInRole(Meteor.userId(), 'admin' );
     }
-});
+});*/

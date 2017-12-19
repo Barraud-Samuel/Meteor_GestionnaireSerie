@@ -17,7 +17,8 @@ FlowRouter.route('/', {
   name: 'App.home',
   action() {
     if (Meteor.userId()){
-        adminOruserRouteforHomepage();
+        //adminOruserRouteforHomepage();
+        BlazeLayout.render('App_body', { main: 'App_home' });
     }else{
         FlowRouter.go("/Login");
         console.log('log');
@@ -52,7 +53,7 @@ FlowRouter.route('/Absences', {
 // admin route
 FlowRouter.route('/Admin', {
     action() {
-        adminOruserRouteforAdmin();
+        //adminOruserRouteforAdmin();
         BlazeLayout.render('App_body', { main: 'App_admin' });
     },
 });
@@ -63,6 +64,14 @@ FlowRouter.notFound = {
   },
 };
 
+//HELPERS DE REDIRECTION
+Template.registerHelper( 'isAdmin', () => {
+    return Roles.userIsInRole(Meteor.userId(), 'admin' );
+});
+Template.registerHelper( 'isUser', () => {
+    return Roles.userIsInRole(Meteor.userId(), 'user' );
+});
+
 
 //Admin condition function
 //peut etre que flow router inclut un systeme de route pour les admin
@@ -70,7 +79,7 @@ FlowRouter.notFound = {
 // bonne pratique ou pas, je ne sais pas.
 //Le problème serai que dans l'URL le /admin est toujour affiche alors que l'on est dans le template App_home
 
-function adminOruserRouteforHomepage() {
+/*function adminOruserRouteforHomepage() {
     Meteor.call('admin_route', function (error, result) {
         if(error){
             console.log(error);
@@ -105,7 +114,7 @@ function adminOruserRouteforAdmin() {
             }
         }
     });
-}
+}*/
 
 
 
@@ -114,4 +123,5 @@ function adminOruserRouteforAdmin() {
 // j'essaye de redirigé ver la pag admin si l'utilisateur n'est pos admin
 //si j'enlebe le template d'une route ça va bien me rediriger vers la bonne page mais pas de tempalte, rien s'affiche
 //si je laisse le temlplate, les user qui ne sont pas admin peut voir la page admin pendant une demie seconde
-// il fauut etre redirigé vers la page admin avec le bon tempalte a l'interieur
+// il faut etre redirigé vers la page admin avec le bon tempalte a l'interieur
+//je vais test de rediriger directement  grâce aux templates

@@ -1,3 +1,63 @@
 <template name="App_admin">
-    <p>template admin</p>
+    {{#if isAdmin}}
+        <div class="admin_container">
+            {{> nav_bar}}
+            <div class="title-block-container">
+                <h1>Bienvenue sur la page Admin</h1>
+                <ul class="admin-content">
+                    {{#each infosAccount}}
+                        <li>
+                            <div class="element">
+                                <p>{{email}}</p>
+                            </div>
+                            <div class="element">
+                                <p>{{username}}</p>
+                            </div>
+                            <div class="element">
+                                <div>{{> note_admin}}</div>
+                            </div>
+                            <div class="element">
+                                <div>{{> absences_admin}}</div>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    {{else}}
+        <!--sans la double condition la redirection ne se fais pas , je ne sais
+        pas pourquoi-->
+        {{#if isUser}}
+            {{redirectionHome}}
+        {{/if}}
+    {{/if}}
+</template>
+
+<template name="note_admin">
+    <form class="adding_notes">
+        <select name="matiere" required>
+            <option value="integration">Integration</option>
+            <option value="designui">Design UI</option>
+            <option value="designux">Design UX</option>
+            <option value="devfront">Dev Front</option>
+            <option value="devback">Dev Back</option>
+        </select>
+        <input type="number" name="note" placeholder="note" required>
+        <input type="submit" name="submit" value="OK">
+    </form>
+    <ul>
+        {{#each notes}}
+            <li></li>
+        {{/each}}
+    </ul>
+</template>
+<template name="absences_admin">
+    <form class="adding_absences">
+        <select name="absences" id=""></select>
+    </form>
+    <ul>
+        {{#each absences}}
+            <li>absences</li>
+        {{/each}}
+    </ul>
 </template>

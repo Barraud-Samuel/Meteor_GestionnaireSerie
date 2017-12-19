@@ -18,15 +18,6 @@ Template.App_login.events({
     },
 });
 
-/*Template.App_login.events({
-    'click .submit'(event){
-        //FlowRouter.go("/");
-        console.log('123456')
-    },
-});*/
-
-
-
 /*
 je comprend pas pourquoi le packet useraccounts:flow-routing redirige automatiquement
 ver la home sans avoir parametré aucun chemin, je ne sais pas si c'est le comportement de base*/
