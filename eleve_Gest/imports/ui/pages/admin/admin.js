@@ -8,6 +8,20 @@ import {Meteor} from "meteor/meteor";
 import { Roles } from 'meteor/alanning:roles';
 import {Eleves} from "../../../api/eleves/eleves";
 
+Template.absences_admin.events({
+    'submit .adding_absences'(event){
+        event.preventDefault();
+        const target = event.target;
+        const matiere = target.matiere;
+
+        const eleve_id = this._id
+        console.log(eleve_id);
+        Meteor.call('absence.insert', matiere.value, eleve_id);
+    },
+});
+
+
+
 //recuperation des elements de la bdd par le client
 Template.App_admin.onCreated(function () {
     Meteor.subscribe('eleves.all');
@@ -22,6 +36,7 @@ Template.App_admin.helpers({
        return Meteor.users.find({});
    },
 });
+
 Template.App_admin.helpers({
     infosAccount() {
         return Eleves.find({});

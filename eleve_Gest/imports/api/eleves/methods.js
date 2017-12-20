@@ -25,6 +25,28 @@ Meteor.methods({
   },
 });
 
+//methods pour l'ajout d'absences
+Meteor.methods({
+    'absence.insert'(matiere,eleve_id){
+       console.log(matiere);
+       console.log(eleve_id);
+       Eleves.insert(
+           /*{
+              _id: eleve_id  ALLER VOIR  MONGO STYLE MODIFIERS
+           },*/
+           {
+
+                   absences: [
+                       { matiere:'Developpement Front', date: '12', valide: 'valide'},
+                       { matiere: 'Clean Design', date:'15', valide: 'non valide' },
+                       { matiere: 'Gestion de projet', date:'13', valide: 'valide' },
+                       { matiere: 'Gestion de projet', date:'17', valide: 'valide' },
+                   ]
+
+           }
+       )
+    }
+});
 
 
 //methods for configuration roles

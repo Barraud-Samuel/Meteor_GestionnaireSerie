@@ -13,11 +13,13 @@
                             <div class="element">
                                 <p>{{username}}</p>
                             </div>
-                            <div class="element">
-                                <div>{{> note_admin}}</div>
-                            </div>
-                            <div class="element">
-                                <div>{{> absences_admin}}</div>
+                            <div class="notes_abences_container">
+                                <div class="element">
+                                    {{> note_admin}}
+                                </div>
+                                <div class="element absences">
+                                    {{> absences_admin}}
+                                </div>
                             </div>
                         </li>
                     {{/each}}
@@ -53,11 +55,18 @@
 </template>
 <template name="absences_admin">
     <form class="adding_absences">
-        <select name="absences" id=""></select>
+        <select name="matiere" required>
+            <option value="integration">Integration</option>
+            <option value="designui">Design UI</option>
+            <option value="designux">Design UX</option>
+            <option value="devfront">Dev Front</option>
+            <option value="devback">Dev Back</option>
+        </select>
+        <input type="submit" value="Ajouter">
     </form>
     <ul>
         {{#each absences}}
-            <li>absences</li>
+            <li>{{matiere}}{{date}}{{valide}}</li>
         {{/each}}
     </ul>
 </template>
