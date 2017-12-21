@@ -14,7 +14,7 @@
                                 <p>{{username}}</p>
                             </div>
                             <div class="notes_abences_container">
-                                <div class="element">
+                                <div class="element notes">
                                     {{> note_admin}}
                                 </div>
                                 <div class="element absences">
@@ -34,7 +34,7 @@
         {{/if}}
     {{/if}}
 </template>
-
+<!--///////APPEL DES TEMPLATES DE LA PAGE ADMIN///////-->
 <template name="note_admin">
     <form class="adding_notes">
         <select name="matiere" required>
@@ -44,12 +44,12 @@
             <option value="devfront">Dev Front</option>
             <option value="devback">Dev Back</option>
         </select>
-        <input type="number" name="note" placeholder="note" required>
+        <input type="number" name="note" placeholder="note/20" max="20" min="0" required>
         <input type="submit" name="submit" value="OK">
     </form>
     <ul>
         {{#each notes}}
-            <li></li>
+            <li><span>{{matiere}}</span><span>{{note}}</span><div class="delete"><img src="/img/bin.png" alt=""></div></li>
         {{/each}}
     </ul>
 </template>
@@ -62,11 +62,12 @@
             <option value="devfront">Dev Front</option>
             <option value="devback">Dev Back</option>
         </select>
+        <input type="date" name="absenceDate" required>
         <input type="submit" value="Ajouter">
     </form>
     <ul>
         {{#each absences}}
-            <li>{{matiere}}{{date}}{{valide}}</li>
+            <li><span>{{matiere}}</span><span>{{absenceDate}}</span><div class="delete"><img src="/img/bin.png" alt=""></div></li>
         {{/each}}
     </ul>
 </template>

@@ -8,19 +8,46 @@ import {Meteor} from "meteor/meteor";
 import { Roles } from 'meteor/alanning:roles';
 import {Eleves} from "../../../api/eleves/eleves";
 
+Template.note_admin.events({
+    'submit .adding_notes'(event){
+        event.preventDefault();
+        const target = event.target;
+        const matiere = target.matiere;
+        const note = target.note;
+
+        const eleve_id = this._id
+        console.log(eleve_id);
+        console.log(note.value);
+        Meteor.call('note.insert', matiere.value, note.value, eleve_id);
+    },
+});
+
 Template.absences_admin.events({
     'submit .adding_absences'(event){
         event.preventDefault();
         const target = event.target;
         const matiere = target.matiere;
+        const absenceDate = target.absenceDate;
 
         const eleve_id = this._id
         console.log(eleve_id);
-        Meteor.call('absence.insert', matiere.value, eleve_id);
+        console.log(absenceDate.value);
+        Meteor.call('absence.insert', matiere.value, absenceDate.value, eleve_id);
     },
 });
 
-
+//events pour le delete de note ou d'absences
+Template.absences_admin.events({
+   'click .delete' (event){
+       //const absence_id = this.absence_id;
+       const target = event.target;
+       const absenceDid= target.absenceDid;
+       const eleve_id = this._id
+       //var absence_id
+       console.log(absenceDid);
+       Meteor.call('absence.delete', eleve_id);
+   }
+});
 
 //recuperation des elements de la bdd par le client
 Template.App_admin.onCreated(function () {

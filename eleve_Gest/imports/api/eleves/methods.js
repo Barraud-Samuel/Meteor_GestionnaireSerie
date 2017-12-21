@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Eleves } from './eleves.js';
 import { Roles } from 'meteor/alanning:roles';
+/////////FACTORISER LE CODE TOUT METTRE DANS UNE SEULE METHODE//////////
 
 //methods for updating student info
 Meteor.methods({
@@ -25,29 +26,68 @@ Meteor.methods({
   },
 });
 
+//methods pour l'ajout de notes
+Meteor.methods({
+    'note.insert'(matiere,note,eleve_id){
+        console.log(matiere);
+        console.log(eleve_id);
+        console.log(note);
+        Eleves.update(
+            {
+                _id: eleve_id
+            },
+            {
+                $push: {
+                    notes: {
+                        matiere: matiere,
+                        note: note
+                    },
+                }
+            }
+        )
+    }
+});
+
 //methods pour l'ajout d'absences
 Meteor.methods({
-    'absence.insert'(matiere,eleve_id){
+    'absence.insert'(matiere,absenceDate,eleve_id){
        console.log(matiere);
        console.log(eleve_id);
-       Eleves.insert(
-           /*{
-              _id: eleve_id  ALLER VOIR  MONGO STYLE MODIFIERS
-           },*/
+       console.log(absenceDate);
+       Eleves.update(
            {
-
-                   absences: [
-                       { matiere:'Developpement Front', date: '12', valide: 'valide'},
-                       { matiere: 'Clean Design', date:'15', valide: 'non valide' },
-                       { matiere: 'Gestion de projet', date:'13', valide: 'valide' },
-                       { matiere: 'Gestion de projet', date:'17', valide: 'valide' },
-                   ]
-
+              _id: eleve_id
+           },
+           {
+            $push: {
+                        absences: {
+                            matiere: matiere,
+                            absenceDate: absenceDate
+                        },
+                }
            }
        )
     }
 });
-
+// suppressiona faire 
+/*Meteor.methods({
+    'absence.delete'(eleve_id){
+        //console.log(absence_id);
+        console.log(eleve_id);
+        Eleves.update(
+            {
+                _id:"sdJE8ytcBZafHRqCE"
+            },
+            {
+                $pull: {
+                    absences: {
+                        matiere :
+                    }
+                }
+            }
+        )
+    }
+});*/
 
 //methods for configuration roles
 Meteor.methods({
