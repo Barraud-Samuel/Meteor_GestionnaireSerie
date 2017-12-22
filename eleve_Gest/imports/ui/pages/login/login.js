@@ -8,8 +8,6 @@ import { Accounts } from 'meteor/accounts-base'
 import { Meteor } from 'meteor/meteor';
 import './login.html';
 
-
-//template log out (remplacer le nom du template)
 Template.App_login.events({
     'click .logout'(event){
         event.preventDefault();

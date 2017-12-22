@@ -32,6 +32,12 @@ Template.App_home.helpers({
     },
 });
 
+Template.App_home.helpers({
+    redirectionUser: function () {
+        FlowRouter.go("/");
+    },
+});
+
 
 //ne sert a rien a part display le role dans le client revoie toujours false quand la page login est trigger par la home
 import {Meteor} from "meteor/meteor";

@@ -46,6 +46,7 @@ Template.absences_admin.events({
        //var absence_id
        console.log(absenceDid);
        Meteor.call('absence.delete', eleve_id);
+
    }
 });
 
