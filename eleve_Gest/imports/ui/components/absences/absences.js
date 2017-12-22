@@ -8,20 +8,12 @@ import {Eleves} from "../../../api/eleves/eleves";
 
 
 
-
-Template.absences.helpers({
-    absences: [
-        { matiere:'Developpement Front', date: '12', valide: 'valide'},
-        { matiere: 'Clean Design', date:'15', valide: 'non valide' },
-        { matiere: 'Gestion de projet', date:'13', valide: 'valide' },
-        { matiere: 'Gestion de projet', date:'17', valide: 'valide' },
-    ],
+Template.absences.onCreated(function () {
+    Meteor.subscribe('eleves.all');
 });
 
-//recuperation des absences de l'elève e question
-/*
-Template.profile.helpers({
-    infosAccount() {
+Template.absences.helpers({
+    thisAccount() {
         return Eleves.find({owner: Meteor.userId()});
     },
-});*/
+});

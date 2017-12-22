@@ -2,9 +2,11 @@
     <div class="notes_container">
         <h3>Vos notes</h3>
         <ul class="list-notes-container">
-        {{#each notes}}
-            <li><span>{{matiere}}:</span><span>{{note}}</span></li>
-        {{/each}}
+            {{#each thisAccount}}
+                {{#each notes}}
+                    <li><span>{{matiere}}:</span><span>{{note}}</span></li>
+                {{/each}}
+            {{/each}}
         </ul>
         <a href="#" class="seeAll">Tout regarder</a>
     </div>

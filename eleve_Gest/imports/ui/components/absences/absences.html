@@ -2,9 +2,10 @@
     <div class="absences_container">
         <h3>Vos absences</h3>
         <ul class="list-notes-container">
-
-            {{#each absences}}
-                <li><span>{{matiere}}</span><span>{{date}}</span><span>{{>validation}}</span></li>
+            {{#each thisAccount}}
+                {{#each absences}}
+                    <li><span>{{matiere}}</span><span>{{absenceDate}}</span></li>
+                {{/each}}
             {{/each}}
         </ul>
         <a href="#" class="seeAll">Tout regarder</a>
