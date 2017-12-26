@@ -4,6 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Eleves } from './eleves.js';
 import { Roles } from 'meteor/alanning:roles';
+import { Mongo } from 'meteor/mongo'
 /////////FACTORISER LE CODE TOUT METTRE DANS UNE SEULE METHODE//////////
 
 //methods for updating student info
@@ -32,6 +33,7 @@ Meteor.methods({
         console.log(matiere);
         console.log(eleve_id);
         console.log(note);
+        const objectId = new Meteor.Collection.ObjectID();
         Eleves.update(
             {
                 _id: eleve_id
@@ -39,9 +41,28 @@ Meteor.methods({
             {
                 $push: {
                     notes: {
+                        _id: objectId,
                         matiere: matiere,
                         note: note
                     },
+                }
+            }
+        )
+    }
+});
+//suppresion des notes
+Meteor.methods({
+    'note.delete'(note_id){
+        console.log(note_id);
+        Eleves.update(
+            {
+               //pas besoin de mettre d'id de l'eleve car l'id donné pour les notes est unique
+            },
+            {
+                $pull: {
+                    notes: {
+                        _id: note_id
+                    }
                 }
             }
         )
@@ -54,6 +75,7 @@ Meteor.methods({
        console.log(matiere);
        console.log(eleve_id);
        console.log(absenceDate);
+        const objectId = new Meteor.Collection.ObjectID();
        Eleves.update(
            {
               _id: eleve_id
@@ -61,6 +83,7 @@ Meteor.methods({
            {
             $push: {
                         absences: {
+                            _id: objectId,
                             matiere: matiere,
                             absenceDate: absenceDate
                         },
@@ -69,25 +92,24 @@ Meteor.methods({
        )
     }
 });
-// suppressiona faire 
-/*Meteor.methods({
-    'absence.delete'(eleve_id){
-        //console.log(absence_id);
-        console.log(eleve_id);
+// suppressiona des absences
+Meteor.methods({
+    'absence.delete'(absence_id){
+        console.log(absence_id);
         Eleves.update(
             {
-                _id:"sdJE8ytcBZafHRqCE"
+                //pas besoin de mettre d'id de l'eleve car l'id donné pour les notes est unique
             },
             {
                 $pull: {
                     absences: {
-                        matiere :
+                        _id: absence_id
                     }
                 }
             }
         )
     }
-});*/
+});
 
 //methods for configuration roles
 Meteor.methods({

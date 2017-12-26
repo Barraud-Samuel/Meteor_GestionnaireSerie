@@ -66,4 +66,3 @@ Meteor.methods({
         return Roles.userIsInRole(Meteor.userId(), 'admin' );
     }
 });
-

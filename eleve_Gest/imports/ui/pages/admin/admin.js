@@ -29,25 +29,30 @@ Template.absences_admin.events({
         const matiere = target.matiere;
         const absenceDate = target.absenceDate;
 
-        const eleve_id = this._id
+        const eleve_id = this._id;
         console.log(eleve_id);
         console.log(absenceDate.value);
         Meteor.call('absence.insert', matiere.value, absenceDate.value, eleve_id);
     },
 });
 
-//events pour le delete de note ou d'absences
+//events pour le delete d'absences
 Template.absences_admin.events({
    'click .delete' (event){
-       //const absence_id = this.absence_id;
-       const target = event.target;
-       const absenceDid= target.absenceDid;
-       const eleve_id = this._id
-       //var absence_id
-       console.log(absenceDid);
-       Meteor.call('absence.delete', eleve_id);
-
+       event.preventDefault();
+       const absence_id = this._id;
+       console.log(absence_id);
+       Meteor.call('absence.delete', absence_id);
    }
+});
+//events pour le delete de note
+Template.note_admin.events({
+    'click .delete' (event){
+        event.preventDefault();
+        const note_id = this._id;
+        console.log(note_id);
+        Meteor.call('note.delete', note_id);
+    }
 });
 
 //recuperation des elements de la bdd par le client
