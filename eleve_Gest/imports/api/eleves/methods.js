@@ -56,7 +56,8 @@ Meteor.methods({
         console.log(note_id);
         Eleves.update(
             {
-               //pas besoin de mettre d'id de l'eleve car l'id donné pour les notes est unique
+                //pas besoin de mettre d'id de l'eleve car l'id donné pour les notes est unique
+                //en revanche il faut ajouter multi:true pour pouvoir modifier plusieurs Id en même temps sans a avoir a les specifier
             },
             {
                 $pull: {
@@ -64,7 +65,8 @@ Meteor.methods({
                         _id: note_id
                     }
                 }
-            }
+            },
+            {multi:true }
         )
     }
 });
@@ -99,6 +101,7 @@ Meteor.methods({
         Eleves.update(
             {
                 //pas besoin de mettre d'id de l'eleve car l'id donné pour les notes est unique
+                //en revanche il faut ajouter multi:true pour pouvoir modifier plusieurs Id en même temps sans a avoir a les specifier
             },
             {
                 $pull: {
@@ -106,7 +109,8 @@ Meteor.methods({
                         _id: absence_id
                     }
                 }
-            }
+            },
+            {multi:true }
         )
     }
 });
