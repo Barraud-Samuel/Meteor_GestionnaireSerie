@@ -106,7 +106,7 @@ Meteor.methods({
             {
                 $pull: {
                     absences: {
-                        _id: absence_id
+                        _id: absence_id 
                     }
                 }
             },
