@@ -3,9 +3,13 @@
         <h3>Vos notes</h3>
         <ul class="list-notes-container">
             {{#each thisAccount}}
-                {{#each notes}}
-                    <li><span>{{matiere}}:</span><span>{{note}}/20</span></li>
-                {{/each}}
+                {{#if notes}}
+                    {{#each notes}}
+                        <li><span>{{matiere}}:</span><span>{{note}}/20</span></li>
+                    {{/each}}
+                    {{else}}
+                    <p class="warning">Vous n'avez pas de notes</p>
+                {{/if}}
             {{/each}}
         </ul>
         <a href="#" class="seeAll">Tout regarder</a>

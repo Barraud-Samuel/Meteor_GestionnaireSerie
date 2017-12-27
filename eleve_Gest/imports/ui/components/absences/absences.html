@@ -3,15 +3,14 @@
         <h3>Vos absences</h3>
         <ul class="list-notes-container">
             {{#each thisAccount}}
-                {{#each absences}}
-                    <li><span>{{matiere}}</span><span>{{absenceDate}}</span></li>
-                {{/each}}
+                {{#if absences}}
+                    {{#each absences}}
+                        <li><span>{{matiere}}</span><span>{{absenceDate}}</span></li>
+                    {{/each}}
+                    {{else}}
+                    <p class="warning">Vous n'avez pas d'absences</p>
+                {{/if}}
             {{/each}}
         </ul>
-        <a href="#" class="seeAll">Tout regarder</a>
     </div>
-</template>
-
-<template name="validation">
-    {{valide}}
 </template>
