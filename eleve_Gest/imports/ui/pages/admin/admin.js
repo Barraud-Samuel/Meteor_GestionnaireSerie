@@ -18,7 +18,13 @@ Template.note_admin.events({
         const eleve_id = this._id
         console.log(eleve_id);
         console.log(note.value);
-        Meteor.call('note.insert', matiere.value, note.value, eleve_id);
+        Meteor.call('note.insert', matiere.value, note.value, eleve_id,(error)=>{
+            if (error){
+                alert(error.error);
+            }else{
+                note.value = " ";
+            }
+        });
     },
 });
 
@@ -32,7 +38,13 @@ Template.absences_admin.events({
         const eleve_id = this._id;
         console.log(eleve_id);
         console.log(absenceDate.value);
-        Meteor.call('absence.insert', matiere.value, absenceDate.value, eleve_id);
+        Meteor.call('absence.insert', matiere.value, absenceDate.value, eleve_id,(error)=>{
+            if (error){
+                alert(error.error);
+            }else{
+                absenceDate.value = " ";
+            }
+        });
     },
 });
 

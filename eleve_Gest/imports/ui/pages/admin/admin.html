@@ -6,12 +6,9 @@
                 <h1>Bienvenue sur la page Admin</h1>
                 <ul class="admin-content">
                     {{#each infosAccount}}
-                        <li>
-                            <div class="element">
-                                <p>{{email}}</p>
-                            </div>
-                            <div class="element">
-                                <p>{{username}}</p>
+                        <li class="list_eleve">
+                            <div class="name_eleve">
+                                <h2><span>Nom de l'élève :</span> {{username}}</h2>
                             </div>
                             <div class="notes_abences_container">
                                 <div class="element notes">
@@ -37,7 +34,9 @@
 <!--///////APPEL DES TEMPLATES DE LA PAGE ADMIN///////-->
 <template name="note_admin">
     <form class="adding_notes">
+        <h3>Ajouter une Note</h3>
         <select name="matiere" required>
+            <option value="" disabled selected>Selectionner une matière</option>
             <option value="integration">Integration</option>
             <option value="designui">Design UI</option>
             <option value="designux">Design UX</option>
@@ -49,13 +48,15 @@
     </form>
     <ul>
         {{#each notes}}
-            <li><span>{{matiere}}</span><span>{{note}}</span><div class="delete"><img src="/img/delete-button.png" alt="supprimer" title="supprimer"></div></li>
+            <li><span>{{matiere}}</span><span>{{note}}/20</span><div class="delete"><img src="/img/delete.png" alt="supprimer" title="supprimer"></div></li>
         {{/each}}
     </ul>
 </template>
 <template name="absences_admin">
     <form class="adding_absences">
+        <h3>Ajouter une absence</h3>
         <select name="matiere" required>
+            <option value="" disabled selected>Selectionner une matière</option>
             <option value="integration">Integration</option>
             <option value="designui">Design UI</option>
             <option value="designux">Design UX</option>
@@ -67,7 +68,7 @@
     </form>
     <ul>
         {{#each absences}}
-            <li><span>{{matiere}}</span><span>{{absenceDate}}</span><div class="delete"><img src="/img/delete-button.png" alt="supprimer" title="supprimer"></div></li>
+            <li><span>{{matiere}}</span><span>{{absenceDate}}</span><div class="delete"><img src="/img/delete.png" alt="supprimer" title="supprimer"></div></li>
         {{/each}}
     </ul>
 </template>
