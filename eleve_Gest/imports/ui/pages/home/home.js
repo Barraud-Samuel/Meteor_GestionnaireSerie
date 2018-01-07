@@ -15,7 +15,6 @@ import '../../components/profile/profile.js';
 Meteor.subscribe('users');
 
 Template.App_home.helpers({
-    // move this line to Template.user.helpers
     //le temps que meteor connect le user, meteor declanche une erreur dans la console
     // je pense qu'il faut rajouter une condition pour voir si quelqu'un est connecté ou faire ça coté serveur.
      userEmail: function() {  return Meteor.user().emails[0].address; },
@@ -51,7 +50,7 @@ if (Roles.userIsInRole(Meteor.userId(), 'admin' )){
 
 
 
-//une fois l'user crée, il est redirigé vers la home et on en profite pour lui assigné un role
+//une fois l'user crée, il est redirigé vers la home et on en profite pour lui assigner un role
 //je ne sais pas comment trigger l'ajout de rôle autrement
 //ce serai mieu de le trigger a la création, (mais ça marche)
 Meteor.call('define_roles');

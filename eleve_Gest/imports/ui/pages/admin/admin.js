@@ -57,7 +57,7 @@ Template.absences_admin.events({
        Meteor.call('absence.delete', absence_id);
    }
 });
-//events pour le delete de note
+//events pour le delete de notes
 Template.note_admin.events({
     'click .delete' (event){
         event.preventDefault();
@@ -88,11 +88,6 @@ Template.App_admin.helpers({
     },
 });
 
-/*Template.App_admin.helpers({
-   user(){
-       return Meteor.user.find({});
-   }
-});*/
 
 //Helpers de redirection pour les user. (De la page admin vers la page home)
 Template.App_admin.helpers({
@@ -101,6 +96,6 @@ Template.App_admin.helpers({
     },
 });
 
-//je trigger l'attribution de role également sur lla page admin si j'amais l'utilisateur qui creéer son compte est
+//je trigger l'attribution de role également sur la page admin si j'amais l'utilisateur qui créer son compte est
 //un admin qui sera donc redirigé sur la page admin
 Meteor.call('define_roles');
