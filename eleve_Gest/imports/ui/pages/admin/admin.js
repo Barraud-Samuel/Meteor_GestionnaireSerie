@@ -16,8 +16,8 @@ Template.note_admin.events({
         const note = target.note;
 
         const eleve_id = this._id
-        console.log(eleve_id);
-        console.log(note.value);
+        //console.log(eleve_id);
+        //console.log(note.value);
         Meteor.call('note.insert', matiere.value, note.value, eleve_id,(error)=>{
             if (error){
                 alert(error.error);
@@ -36,8 +36,8 @@ Template.absences_admin.events({
         const absenceDate = target.absenceDate;
 
         const eleve_id = this._id;
-        console.log(eleve_id);
-        console.log(absenceDate.value);
+        //console.log(eleve_id);
+        //console.log(absenceDate.value);
         Meteor.call('absence.insert', matiere.value, absenceDate.value, eleve_id,(error)=>{
             if (error){
                 alert(error.error);
@@ -53,7 +53,7 @@ Template.absences_admin.events({
    'click .delete' (event){
        event.preventDefault();
        const absence_id = this._id;
-       console.log(absence_id);
+       //console.log(absence_id);
        Meteor.call('absence.delete', absence_id);
    }
 });
@@ -62,7 +62,7 @@ Template.note_admin.events({
     'click .delete' (event){
         event.preventDefault();
         const note_id = this._id;
-        console.log(note_id);
+        //console.log(note_id);
         Meteor.call('note.delete', note_id);
     }
 });

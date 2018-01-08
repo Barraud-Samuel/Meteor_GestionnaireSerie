@@ -30,9 +30,9 @@ Meteor.methods({
 //methods pour l'ajout de notes
 Meteor.methods({
     'note.insert'(matiere,note,eleve_id){
-        console.log(matiere);
-        console.log(eleve_id);
-        console.log(note);
+        //console.log(matiere);
+        //console.log(eleve_id);
+        //console.log(note);
         const objectId = new Meteor.Collection.ObjectID();
         Eleves.update(
             {
@@ -53,7 +53,7 @@ Meteor.methods({
 //suppresion des notes
 Meteor.methods({
     'note.delete'(note_id){
-        console.log(note_id);
+        //console.log(note_id);
         Eleves.update(
             {
                 //pas besoin de mettre d'id de l'eleve car l'id donné pour les notes est unique
@@ -74,9 +74,9 @@ Meteor.methods({
 //methods pour l'ajout d'absences
 Meteor.methods({
     'absence.insert'(matiere,absenceDate,eleve_id){
-       console.log(matiere);
-       console.log(eleve_id);
-       console.log(absenceDate);
+       //console.log(matiere);
+       //console.log(eleve_id);
+       //console.log(absenceDate);
         const objectId = new Meteor.Collection.ObjectID();
        Eleves.update(
            {
@@ -97,7 +97,7 @@ Meteor.methods({
 // suppressiona des absences
 Meteor.methods({
     'absence.delete'(absence_id){
-        console.log(absence_id);
+        //console.log(absence_id);
         Eleves.update(
             {
                 //pas besoin de mettre d'id de l'eleve car l'id donné pour les notes est unique
@@ -120,14 +120,14 @@ Meteor.methods({
     'define_roles': function () {
         const userEmail = Meteor.user().emails[0].address;
         const userId = Meteor.userId();
-        console.log(userId);
-        console.log(userEmail);
+        //console.log(userId);
+        //console.log(userEmail);
         if (userEmail === 'admin@gmail.com'){
             Roles.addUsersToRoles(userId, ['admin'] );
-            console.log('creation dun admin');
+            //console.log('creation dun admin');
         }else {
             Roles.addUsersToRoles(userId, ['user'] );
-            console.log("creation d'un utilisateur lambda");
+            //console.log("creation d'un utilisateur lambda");
         }
     }
 });
@@ -143,9 +143,9 @@ Meteor.methods({
 Meteor.methods({
     'admin_route': function () {
         if (Roles.userIsInRole(Meteor.userId(), 'admin' )){
-            console.log('true')
+            //console.log('true')
         }else{
-            console.log('false')
+            //console.log('false')
         }
         return Roles.userIsInRole(Meteor.userId(), 'admin' );
     }

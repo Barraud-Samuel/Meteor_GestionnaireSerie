@@ -19,7 +19,7 @@ FlowRouter.route('/', {
         BlazeLayout.render('App_body', { main: 'App_home' });
     }else{
         FlowRouter.go("/Login");
-        console.log('log');
+        //console.log('log');
     }
   },
 });

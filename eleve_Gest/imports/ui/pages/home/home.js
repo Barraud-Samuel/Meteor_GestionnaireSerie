@@ -41,11 +41,11 @@ Template.App_home.helpers({
 //ne sert a rien a part display le role dans le client revoie toujours false quand la page login est trigger par la home
 import {Meteor} from "meteor/meteor";
 const userId = Meteor.userId();
-console.log(userId);
+//console.log(userId);
 if (Roles.userIsInRole(Meteor.userId(), 'admin' )){
-    console.log('true')
+    //console.log('true')
 }else{
-    console.log('false')
+    //console.log('false')
 }
 
 
