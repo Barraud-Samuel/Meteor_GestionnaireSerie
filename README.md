@@ -8,3 +8,5 @@ TP Meteor (essaie de gestionnaire de serie)
 
 
 3eme étape : Lancer météor.
+
+Le dossier correspondant au gestionnaire d'elève est : "eleve_Gest"
